@@ -11,8 +11,13 @@ import { ShowEmpComponent } from './employee/show-emp/show-emp.component';
 import { AddEditEmpComponent } from './employee/add-edit-emp/add-edit-emp.component';
 import {SharedService} from './shared.service'
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { LoginLogoutComponent } from './login-logout/login-logout.component';
+import { LoginComponent } from './login-logout/login/login.component';
+import { SignupComponent } from './login-logout/signup/signup.component';
+
+import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +27,10 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     AddEditDepComponent,
     EmployeeComponent,
     ShowEmpComponent,
-    AddEditEmpComponent
+    AddEditEmpComponent,
+    LoginLogoutComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +39,15 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [SharedService],
+  providers: [SharedService,
+    AuthService,
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

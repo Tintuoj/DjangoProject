@@ -12,3 +12,10 @@ class Employees(models.Model):
     Department=models.CharField(max_length=100)
     DateOfJoining=models.DateField()
     PhotoFileName=models.CharField(max_length=100)
+
+class SignUp(models.Model):
+    UserId=models.AutoField(primary_key=True)
+    UserName=models.CharField(max_length=100)
+    Email=models.CharField(max_length=100)
+    Passsword1=models.CharField(max_length=100)
+    Passsword2=models.CharField(max_length=100)
