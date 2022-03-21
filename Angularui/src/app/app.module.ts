@@ -17,6 +17,7 @@ import { LoginComponent } from './login-logout/login/login.component';
 import { SignupComponent } from './login-logout/signup/signup.component';
 
 import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
+import { LogoutComponent } from './login-logout/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
     ShowEmpComponent,
     AddEditEmpComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
