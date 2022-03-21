@@ -13,7 +13,6 @@ import {SharedService} from './shared.service'
 
 import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-import { LoginLogoutComponent } from './login-logout/login-logout.component';
 import { LoginComponent } from './login-logout/login/login.component';
 import { SignupComponent } from './login-logout/signup/signup.component';
 
@@ -28,7 +27,6 @@ import { AuthService, AuthInterceptor, AuthGuard } from './auth.service';
     EmployeeComponent,
     ShowEmpComponent,
     AddEditEmpComponent,
-    LoginLogoutComponent,
     LoginComponent,
     SignupComponent
   ],
